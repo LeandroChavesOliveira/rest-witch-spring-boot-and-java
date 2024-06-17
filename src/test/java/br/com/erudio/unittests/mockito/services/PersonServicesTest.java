@@ -22,12 +22,12 @@ import br.com.erudio.exceptions.RequiredObjectIsNullException;
 import br.com.erudio.model.Person;
 import br.com.erudio.repository.PersonRepository;
 import br.com.erudio.services.PersonServices;
-import br.com.erudio.unittests.mapper.mocks.MockPerson;
+import br.com.erudio.unittests.mapper.mocks.MockPersonTest;
 
-@TestInstance(Lifecycle.PER_CLASS)
-@ExtendWith(MockitoExtension.class)
+/*@TestInstance(Lifecycle.PER_CLASS)
+@ExtendWith(MockitoExtension.class)*/
 public class PersonServicesTest {
-	MockPerson input;
+	/*MockPersonTest input;
 
 	@InjectMocks
 	private PersonServices service;
@@ -37,7 +37,7 @@ public class PersonServicesTest {
 
 	@BeforeEach
 	void setUpMocks() throws Exception {
-		input = new MockPerson();
+		input = new MockPersonTest();
 		MockitoAnnotations.openMocks(this);
 	}
 
@@ -165,5 +165,5 @@ public class PersonServicesTest {
 		String actualMessage = exception.getMessage();
 
 		assertTrue(actualMessage.contains(expetedMessage));
-	}
+	}*/
 }

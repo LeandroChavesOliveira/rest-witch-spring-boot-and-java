@@ -10,7 +10,7 @@ import br.com.erudio.integrationtests.vo.BookVO;
 
 public class BookEmbeddedVO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	/*private static final long serialVersionUID = 1L;
 
 	@JsonProperty("bookVOList")
 	private List<BookVO> books;
@@ -41,5 +41,5 @@ public class BookEmbeddedVO implements Serializable {
 		BookEmbeddedVO other = (BookEmbeddedVO) obj;
 		return Objects.equals(books, other.books);
 	}
-
+*/
 }

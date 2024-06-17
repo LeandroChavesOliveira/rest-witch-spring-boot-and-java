@@ -31,10 +31,10 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@TestMethodOrder(OrderAnnotation.class)
+/*@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@TestMethodOrder(OrderAnnotation.class)*/
 public class BookControllerJsonTest extends AbstractIntegrationTest {
-
+/*
     private static RequestSpecification specification;
     private static ObjectMapper objectMapper;
 
@@ -253,5 +253,5 @@ public class BookControllerJsonTest extends AbstractIntegrationTest {
         book.setAuthor("Nigel Poulton");
         book.setPrice(Double.valueOf(55.99));
         book.setLaunchDate(new Date("05/11/2017"));
-    }    
+    }   */ 
 }

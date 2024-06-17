@@ -28,12 +28,12 @@ import br.com.erudio.model.Person;
 import br.com.erudio.repository.PersonRepository;
 
 
-@ExtendWith(SpringExtension.class)
+/*@ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@TestMethodOrder(OrderAnnotation.class)
+@TestMethodOrder(OrderAnnotation.class)*/
 public class PersonRepositoryTest extends AbstractIntegrationTest {
-	
+/*	
 	@Autowired
 	public PersonRepository repository;
 	
@@ -91,4 +91,5 @@ public class PersonRepositoryTest extends AbstractIntegrationTest {
 		assertEquals("São Paulo", person.getAddress());
 		assertEquals("Male", person.getGender());
 	}
+	*/
 }

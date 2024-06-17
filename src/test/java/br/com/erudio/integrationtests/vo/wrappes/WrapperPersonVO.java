@@ -10,7 +10,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class WrapperPersonVO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+/*	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("_embedded")
 	private PersonEmbeddedVO embedded;
@@ -41,5 +41,5 @@ public class WrapperPersonVO implements Serializable {
 		WrapperPersonVO other = (WrapperPersonVO) obj;
 		return Objects.equals(embedded, other.embedded);
 	}
-
+*/
 }

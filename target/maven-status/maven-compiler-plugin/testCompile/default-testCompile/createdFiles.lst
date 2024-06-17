@@ -2,6 +2,7 @@ br\com\erudio\integrationtests\vo\wrappes\BookEmbeddedVO.class
 br\com\erudio\integrationtests\vo\wrappes\PersonEmbeddedVO.class
 br\com\erudio\integrationtests\repositories\PersonRepositoryTest.class
 br\com\erudio\integrationtests\controller\withyaml\BookControllerYamlTest.class
+br\com\erudio\unittests\mapper\mocks\MockBookTest.class
 br\com\erudio\integrationtests\controller\withxml\BookControllerXmlTest.class
 br\com\erudio\integrationtests\vo\wrappes\WrapperBookVO.class
 br\com\erudio\integrationtests\controller\withyaml\AuthControllerYamlTest.class
@@ -16,16 +17,14 @@ br\com\erudio\unittests\mockito\services\BookServicesTest.class
 br\com\erudio\integrationtests\controller\withxml\PersonControllerXmlTest.class
 br\com\erudio\integrationtests\controller\withjson\BookControllerJsonTest.class
 br\com\erudio\integrationtests\controller\withjson\AuthControllerJsonTest.class
-br\com\erudio\integrationtests\testcontainers\AbstractIntegrationTest$Initializer.class
 br\com\erudio\integrationtests\vo\wrappes\WrapperPersonVO.class
+br\com\erudio\unittests\mapper\mocks\MockPersonTest.class
 br\com\erudio\integrationtests\controller\withyaml\PersonControllerYamlTest.class
 br\com\erudio\integrationtests\controller\withyaml\mapper\YMLMapper.class
 br\com\erudio\integrationtests\vo\pagedmodels\PagedModelBook.class
 br\com\erudio\integrationtests\vo\pagedmodels\PagedModelPerson.class
-br\com\erudio\unittests\mapper\mocks\MockPerson.class
 br\com\erudio\integrationtests\swagger\SwaggerIntegrationTests.class
 br\com\erudio\unittests\mockito\services\PersonServicesTest.class
-br\com\erudio\unittests\mapper\mocks\MockBook.class
 br\com\erudio\integrationtests\vo\AccountCredentialsVO.class
 br\com\erudio\unittests\mapper\DozerConverterTest.class
 br\com\erudio\configs\TestConfigs.class

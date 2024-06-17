@@ -8,7 +8,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class AccountCredentialsVO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	/*private static final long serialVersionUID = 1L;
 
 	private String username;
 	private String password;
@@ -52,5 +52,5 @@ public class AccountCredentialsVO implements Serializable {
 		AccountCredentialsVO other = (AccountCredentialsVO) obj;
 		return Objects.equals(password, other.password) && Objects.equals(username, other.username);
 	}
-
+*/
 }

@@ -9,7 +9,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TokenVO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+/*	private static final long serialVersionUID = 1L;
 
 	private String username;
 	private Boolean authenticated;
@@ -97,5 +97,5 @@ public class TokenVO implements Serializable {
 				&& Objects.equals(created, other.created) && Objects.equals(expiration, other.expiration)
 				&& Objects.equals(refreshToken, other.refreshToken) && Objects.equals(username, other.username);
 	}
-
+*/
 }

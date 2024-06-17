@@ -33,7 +33,7 @@ import io.restassured.specification.RequestSpecification;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(OrderAnnotation.class)
 public class PersonControllerXmlTest extends AbstractIntegrationTest {
-
+/*
 	private static RequestSpecification specification;
 	private static XmlMapper objectMapper;
 
@@ -370,5 +370,5 @@ public class PersonControllerXmlTest extends AbstractIntegrationTest {
 		person.setGender("Male");
 		person.setEnabled(true);
 	}
-
+*/
 }

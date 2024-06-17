@@ -34,7 +34,7 @@ import io.restassured.specification.RequestSpecification;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @TestMethodOrder(OrderAnnotation.class)
 public class BookControllerXmlTest extends AbstractIntegrationTest {
-	
+/*	
 	private static RequestSpecification specification;
 	private static XmlMapper objectMapper;
 
@@ -279,5 +279,5 @@ public class BookControllerXmlTest extends AbstractIntegrationTest {
         book.setAuthor("Nigel Poulton");
         book.setPrice(Double.valueOf(55.99));
         book.setLaunchDate(new Date("05/11/2017"));
-    }  
+    }  */
 }

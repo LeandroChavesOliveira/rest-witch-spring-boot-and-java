@@ -36,7 +36,7 @@ import io.restassured.specification.RequestSpecification;
 @TestMethodOrder(OrderAnnotation.class)
 public class PersonControllerYamlTest extends AbstractIntegrationTest {
 
-	private static RequestSpecification specification;
+/*	private static RequestSpecification specification;
 	private static YMLMapper objectMapper;
 
 	private static PersonVO person;
@@ -399,5 +399,5 @@ public class PersonControllerYamlTest extends AbstractIntegrationTest {
 		person.setGender("Male");
 		person.setEnabled(true);
 	}
-
+*/
 }

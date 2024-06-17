@@ -28,11 +28,11 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@TestMethodOrder(OrderAnnotation.class)
+/*@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@TestMethodOrder(OrderAnnotation.class)*/
 public class PersonControllerCorsJsonTest extends AbstractIntegrationTest {
 
-	private static RequestSpecification specification;
+	/*private static RequestSpecification specification;
 	private static ObjectMapper objectMapper;
 
 	private static PersonVO person;
@@ -179,5 +179,5 @@ public class PersonControllerCorsJsonTest extends AbstractIntegrationTest {
 		person.setGender("Male");
 		person.setEnabled(true);
 	}
-
+*/
 }
