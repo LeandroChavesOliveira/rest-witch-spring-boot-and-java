@@ -17,8 +17,8 @@ import br.com.erudio.integrationtests.testcontainers.AbstractIntegrationTest;
 import br.com.erudio.integrationtests.vo.AccountCredentialsVO;
 import br.com.erudio.integrationtests.vo.TokenVO;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@TestMethodOrder(OrderAnnotation.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+//@TestMethodOrder(OrderAnnotation.class)
 public class AuthControllerXmlTest extends AbstractIntegrationTest{
 /*	
 	private static TokenVO tokenVO;
