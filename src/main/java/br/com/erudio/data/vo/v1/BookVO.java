@@ -7,25 +7,37 @@ import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.dozermapper.core.Mapping;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 
 
 
 
-@JsonPropertyOrder({"id", "author", "launchDate", "price", "title"})
-
+@JsonPropertyOrder({ "id", "author", "launchDate", "price", "title" })
 public class BookVO extends RepresentationModel<BookVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	
+	public BookVO() {
+	}
+
+	@Mapping("id")
 	@JsonProperty("id")
+	@Schema(description = "Id - chave no banco")
 	private Long key;
+
+	@Schema(description = "Nome do Autor")
 	private String author;
+
+	@Schema(description = "Data de Lançamento", example = "dd/MM/yyyy")
 	private Date launchDate;
+
+	@Schema(description = "Preço")
 	private Double price;
+
+	@Schema(description = "Titulo do Livro")
 	private String title;
-	
-	public BookVO() {}
 
 	public Long getKey() {
 		return key;
@@ -41,14 +53,6 @@ public class BookVO extends RepresentationModel<BookVO> implements Serializable 
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-	public Date getLaunchDate() {
-		return launchDate;
-	}
-
-	public void setLaunchDate(Date launchDate) {
-		this.launchDate = launchDate;
 	}
 
 	public Double getPrice() {
@@ -67,52 +71,11 @@ public class BookVO extends RepresentationModel<BookVO> implements Serializable 
 		this.title = title;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + ((key == null) ? 0 : key.hashCode());
-		result = prime * result + ((launchDate == null) ? 0 : launchDate.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		return result;
+	public Date getLaunchDate() {
+		return launchDate;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BookVO other = (BookVO) obj;
-		if (author == null) {
-			if (other.author != null)
-				return false;
-		} else if (!author.equals(other.author))
-			return false;
-		if (key == null) {
-			if (other.key != null)
-				return false;
-		} else if (!key.equals(other.key))
-			return false;
-		if (launchDate == null) {
-			if (other.launchDate != null)
-				return false;
-		} else if (!launchDate.equals(other.launchDate))
-			return false;
-		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
-		return true;
+	public void setLaunchDate(Date launchDate) {
+		this.launchDate = launchDate;
 	}
 }

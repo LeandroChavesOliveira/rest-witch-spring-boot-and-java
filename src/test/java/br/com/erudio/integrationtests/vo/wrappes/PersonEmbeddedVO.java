@@ -10,7 +10,7 @@ import br.com.erudio.integrationtests.vo.PersonVO;
 
 public class PersonEmbeddedVO implements Serializable {
 
-/*	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	@JsonProperty("personVOList")
 	private List<PersonVO> persons;
@@ -41,5 +41,5 @@ public class PersonEmbeddedVO implements Serializable {
 		PersonEmbeddedVO other = (PersonEmbeddedVO) obj;
 		return Objects.equals(persons, other.persons);
 	}
-*/
+
 }

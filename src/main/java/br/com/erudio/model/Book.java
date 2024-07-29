@@ -29,10 +29,10 @@ public class Book implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date launchDate;
 	
-	@Column(nullable = false)
+	@Column(name = "price", precision = 65, scale = 2, nullable = false)
 	private Double price;
-	
-	@Column(nullable = false, length = 250)
+
+	@Column(name = "title", length = 250, nullable = false)
 	private String title;
 	
 	public Book() {}

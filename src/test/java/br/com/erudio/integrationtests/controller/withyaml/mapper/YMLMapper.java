@@ -12,19 +12,7 @@ import io.restassured.mapper.ObjectMapperSerializationContext;
 
 public class YMLMapper implements ObjectMapper {
 
-	@Override
-	public Object deserialize(ObjectMapperDeserializationContext context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object serialize(ObjectMapperSerializationContext context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*private com.fasterxml.jackson.databind.ObjectMapper objectMapper;
+	private com.fasterxml.jackson.databind.ObjectMapper objectMapper;
 	protected TypeFactory typeFactory;
 
 	public YMLMapper() {
@@ -55,6 +43,6 @@ public class YMLMapper implements ObjectMapper {
 			e.printStackTrace();
 		}
 		return null;
-	}*/
+	}
 
 }

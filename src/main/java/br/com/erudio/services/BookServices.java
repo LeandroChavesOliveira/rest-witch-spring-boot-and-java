@@ -1,28 +1,26 @@
 package br.com.erudio.services;
 
-import org.springframework.stereotype.Service;
-import java.util.List;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.stereotype.Service;
 
 import br.com.erudio.controller.BookController;
 import br.com.erudio.data.vo.v1.BookVO;
 import br.com.erudio.exceptions.RequiredObjectIsNullException;
 import br.com.erudio.exceptions.ResourceNotFoundException;
 import br.com.erudio.mapper.DozerMapper;
+import br.com.erudio.mapper.custom.BookMepper;
 import br.com.erudio.model.Book;
 import br.com.erudio.repository.BookRepository;
-import br.com.erudio.services.PersonServices;
-import br.com.erudio.util.MediaType;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 
@@ -30,73 +28,100 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @Service
 public class BookServices {
 	
-private Logger logger = Logger.getLogger(BookServices.class.getName());
+	private Logger logger = Logger.getLogger(BookServices.class.getName());
 	
 	@Autowired
-	BookRepository repository;
+	BookRepository booksRepository;
+	
+	@Autowired
+	PagedResourcesAssembler<BookVO> assembler;
 
-	public List<BookVO> findAll() {
+	public PagedModel<EntityModel<BookVO>> findAll(Pageable pageable) {
 
-		logger.info("Finding all book!");
+		logger.info("Finding all books!");
+		
+		var booksPage = booksRepository.findAll(pageable);
+		
+		var bookVosPage = booksPage.map(p -> DozerMapper.parseObject(p, BookVO.class));
+		bookVosPage.map(p -> p.add(linkTo(methodOn(BookController.class).findById(p.getKey())).withSelfRel()));
 
-		var books = DozerMapper.parseListObjects(repository.findAll(), BookVO.class);
-		books
-			.stream()
-			.forEach(p -> p.add(linkTo(methodOn(BookController.class).findById(p.getKey())).withSelfRel()));
-		return books;
+		Link link = linkTo(methodOn(BookController.class).findAll(pageable.getPageNumber(), pageable.getPageSize(), "asc")).withSelfRel();
+		
+		return assembler.toModel(bookVosPage, link);
+	}
+	
+	public PagedModel<EntityModel<BookVO>> findBookByTitle(String title, Pageable pageable) {
+
+		logger.info("Finding all Book by title!");
+		
+		var bookPage = booksRepository.findBookByTitle(title, pageable);
+		
+		var BookVosPage = bookPage.map(p -> DozerMapper.parseObject(p, BookVO.class));
+		BookVosPage.map(p -> p.add(linkTo(methodOn(BookController.class).findById(p.getKey())).withSelfRel()));
+
+		Link link = linkTo(methodOn(BookController.class).findAll(pageable.getPageNumber(), pageable.getPageSize(), "asc")).withSelfRel();
+		
+		return assembler.toModel(BookVosPage, link);
 	}
 
 	public BookVO findById(Long id) {
-		
+
 		logger.info("Finding one book!");
-		
-		var entity = repository.findById(id)
-			.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
-		var vo = DozerMapper.parseObject(entity, BookVO.class);
+
+		var entity = booksRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
+
+		var vo = BookMepper.convertEntityToVO(entity);
+
 		vo.add(linkTo(methodOn(BookController.class).findById(id)).withSelfRel());
+
 		return vo;
 	}
-	
+
 	public BookVO create(BookVO book) {
 
 		if (book == null) throw new RequiredObjectIsNullException();
 
 		logger.info("Creating one book!");
 
-		var entity = DozerMapper.parseObject(book, Book.class);
-		entity = repository.save(entity);
-		var vo = DozerMapper.parseObject(entity, BookVO.class);
+		var entity = DozerMapper.parseObject(book, Book.class);		
+		var vo = DozerMapper.parseObject(booksRepository.save(entity), BookVO.class);
 
 		vo.add(linkTo(methodOn(BookController.class).findById(vo.getKey())).withSelfRel());
 		return vo;
 	}
-	
+
 	public BookVO update(BookVO book) {
 
 		if (book == null) throw new RequiredObjectIsNullException();
-		
+
 		logger.info("Updating one book!");
-		
-		var entity = repository.findById(book.getKey())
-			.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
+
+		var entity = booksRepository.findById(book.getKey()).orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
 
 		entity.setAuthor(book.getAuthor());
 		entity.setLaunchDate(book.getLaunchDate());
 		entity.setPrice(book.getPrice());
 		entity.setTitle(book.getTitle());
+		var vo = new BookVO();
 		
-		var vo =  DozerMapper.parseObject(repository.save(entity), BookVO.class);
+		try {
+			vo = BookMepper.convertEntityToVO(booksRepository.save(entity));
+		} catch (Exception e) {
+			logger.info("Deleting one book!");
+		}
+
+		
+
 		vo.add(linkTo(methodOn(BookController.class).findById(vo.getKey())).withSelfRel());
 		return vo;
 	}
 	
-	public void delete(Long id) {
-		
+	public void delete(Long key) {
 		logger.info("Deleting one book!");
-		
-		var entity = repository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("No records found for this ID!"));
-		repository.delete(entity);
+
+		var entity = booksRepository.findById(key).orElseThrow(() -> new ResourceNotFoundException("No records found for this ID"));
+
+		booksRepository.delete(entity);
 	}
 
 }

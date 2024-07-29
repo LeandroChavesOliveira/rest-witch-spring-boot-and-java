@@ -10,15 +10,15 @@ import org.junit.jupiter.api.Test;
 import br.com.erudio.data.vo.v1.PersonVO;
 import br.com.erudio.mapper.DozerMapper;
 import br.com.erudio.model.Person;
-import br.com.erudio.unittests.mapper.mocks.MockPersonTest;
+import br.com.erudio.unittests.mapper.mocks.MockPerson;
 
 public class DozerConverterTest {
     
-  /*  MockPersonTest inputObject;
+    MockPerson inputObject;
 
     @BeforeEach
     public void setUp() {
-        inputObject = new MockPersonTest();
+        inputObject = new MockPerson();
     }
 
     @Test
@@ -95,5 +95,5 @@ public class DozerConverterTest {
         assertEquals("Last Name Test12", outputTwelve.getLastName());
         assertEquals("Addres Test12", outputTwelve.getAddress());
         assertEquals("Male", outputTwelve.getGender());
-    }*/
+    }
 }

@@ -9,7 +9,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class BookVO implements Serializable {
 
-/*	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String author;
@@ -78,5 +78,5 @@ public class BookVO implements Serializable {
 				&& Objects.equals(launchDate, other.launchDate) && Objects.equals(price, other.price)
 				&& Objects.equals(title, other.title);
 	}
-*/
+
 }

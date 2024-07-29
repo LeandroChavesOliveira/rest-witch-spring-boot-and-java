@@ -9,7 +9,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class PagedModelPerson {
 
-	/*@XmlElement(name = "content")
+	@XmlElement(name = "content")
 	private List<PersonVO> content;
 
 	public PagedModelPerson() {
@@ -22,5 +22,5 @@ public class PagedModelPerson {
 	public void setContent(List<PersonVO> content) {
 		this.content = content;
 	}
-*/
+
 }

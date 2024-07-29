@@ -1,5 +1,6 @@
 package br.com.erudio.data.vo.v1;
 
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -7,30 +8,23 @@ import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.github.dozermapper.core.Mapping;
 
-@JsonPropertyOrder({"id", "first_name", "last_name", "address", "gender"})
+@JsonPropertyOrder({ "id", "firstName", "lastName", "address", "gender",  "enabled"})
 public class PersonVO extends RepresentationModel<PersonVO> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	@Mapping("id")
 	@JsonProperty("id")
-	
 	private Long key;
-	
-	@JsonProperty("first_name")
 	private String firstName;
-	
-	@JsonProperty("last_name")
 	private String lastName;
-	
 	private String address;
-	
-	//@JsonIgnore
 	private String gender;
-	
 	private Boolean enabled;
-	
+
 	public PersonVO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getKey() {
@@ -40,7 +34,7 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
 	public void setKey(Long key) {
 		this.key = key;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -103,5 +97,4 @@ public class PersonVO extends RepresentationModel<PersonVO> implements Serializa
 				&& Objects.equals(key, other.key) && Objects.equals(lastName, other.lastName);
 	}
 
-		
 }

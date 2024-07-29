@@ -8,7 +8,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class PersonVO implements Serializable {
 
-/*	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String firstName;
@@ -86,5 +86,5 @@ public class PersonVO implements Serializable {
 				&& Objects.equals(firstName, other.firstName) && Objects.equals(gender, other.gender)
 				&& Objects.equals(id, other.id) && Objects.equals(lastName, other.lastName);
 	}
-*/
+
 }

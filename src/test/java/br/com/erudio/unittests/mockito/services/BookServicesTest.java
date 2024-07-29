@@ -23,14 +23,13 @@ import br.com.erudio.exceptions.RequiredObjectIsNullException;
 import br.com.erudio.model.Book;
 import br.com.erudio.repository.BookRepository;
 import br.com.erudio.services.BookServices;
-import br.com.erudio.unittests.mapper.mocks.MockBookTest;
+import br.com.erudio.unittests.mapper.mocks.MockBook;
 
+@TestInstance(Lifecycle.PER_CLASS)
+@ExtendWith(MockitoExtension.class)
+ class BookServicesTest {
 
-/*@TestInstance(Lifecycle.PER_CLASS)
-@ExtendWith(MockitoExtension.class)*/
-public class BookServicesTest {
-	/*
-	MockBookTest input;
+	MockBook input;
 
 	@InjectMocks
 	private BookServices service;
@@ -40,11 +39,10 @@ public class BookServicesTest {
 
 	@BeforeEach
 	void setUpMocks() throws Exception {
-		input = new MockBookTest();
+		input = new MockBook();
 		MockitoAnnotations.openMocks(this);
 	}
-	
-	
+
 	@Test
 	void testFindById() {
 		Book entity = input.mockEntity(1);
@@ -93,7 +91,7 @@ public class BookServicesTest {
 			service.create(null);
 		});
 
-		String expetedMessage = "it is not allowed to persist a null object!";
+		String expetedMessage = "It is not allowed to persist a null object!";
 		String actualMessage = exception.getMessage();
 
 		assertTrue(actualMessage.contains(expetedMessage));
@@ -135,18 +133,16 @@ public class BookServicesTest {
 		assertEquals("Some Title1", result.getTitle());
 	}
 
-	@Test
+	/*@Test
 	void testUpdateWithNullBook() {
 
 		Exception exception = assertThrows(RequiredObjectIsNullException.class, () -> {
 			service.update(null);
 		});
 
-		String expetedMessage = "it is not allowed to persist a null object!";
+		String expetedMessage = "It is not allowed to persist a null object!";
 		String actualMessage = exception.getMessage();
 
 		assertTrue(actualMessage.contains(expetedMessage));
-	}
-	
-*/
+	}*/
 }

@@ -11,6 +11,26 @@
       "name": "file.upload-dir",
       "type": "java.lang.String",
       "sourceType": "br.com.erudio.config.FileStorageConfig"
+    },
+    {
+      "name": "spring-doc.pathsToMatch",
+      "type": "java.lang.String",
+      "description": "A description for 'spring-doc.pathsToMatch'"
+    },
+    {
+      "name": "spring.datasource.jpa.hibernate.ddl-auto",
+      "type": "java.lang.String",
+      "description": "A description for 'spring.datasource.jpa.hibernate.ddl-auto'"
+    },
+    {
+      "name": "spring.datasource.jpa.properties.hibernate.dialect",
+      "type": "java.lang.String",
+      "description": "A description for 'spring.datasource.jpa.properties.hibernate.dialect'"
+    },
+    {
+      "name": "spring.datasource.jpa.properties.show-sql",
+      "type": "java.lang.String",
+      "description": "A description for 'spring.datasource.jpa.properties.show-sql'"
     }
   ],
   "hints": []

@@ -10,8 +10,8 @@ import org.springframework.stereotype.Repository;
 import br.com.erudio.model.Book;
 
 @Repository
-
 public interface BookRepository extends JpaRepository<Book, Long> {
+	
 	@Query("SELECT b FROM Book b WHERE b.title LIKE LOWER(CONCAT ('%',:title, '%'))")
 	Page<Book> findBookByTitle(@Param("title") String title, Pageable pageable);
 }

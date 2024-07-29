@@ -5,42 +5,51 @@ import java.io.Serializable;
 public class UploadFileResponseVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private String filename;
+
+	private String fileName;
 	private String fileDownloadUri;
 	private String fileType;
-	private long size;
-	
-	
-	
-	public UploadFileResponseVO(String filename, String fileDownloadUri, String fileType, long size) {
-		this.filename = filename;
+	private Long size;
+
+	public UploadFileResponseVO(String fileName, String fileDownloadUri, String fileType, Long size) {
+		super();
+		this.fileName = fileName;
 		this.fileDownloadUri = fileDownloadUri;
 		this.fileType = fileType;
 		this.size = size;
 	}
-	public String getFilename() {
-		return filename;
+	
+	public UploadFileResponseVO() {}
+
+	public String getFileName() {
+		return fileName;
 	}
-	public void setFilename(String filename) {
-		this.filename = filename;
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
+
 	public String getFileDownloadUri() {
 		return fileDownloadUri;
 	}
+
 	public void setFileDownloadUri(String fileDownloadUri) {
 		this.fileDownloadUri = fileDownloadUri;
 	}
+
 	public String getFileType() {
 		return fileType;
 	}
+
 	public void setFileType(String fileType) {
 		this.fileType = fileType;
 	}
-	public long getSize() {
+
+	public Long getSize() {
 		return size;
 	}
-	public void setSize(long size) {
+
+	public void setSize(Long size) {
 		this.size = size;
 	}
 
